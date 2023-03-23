@@ -8,13 +8,26 @@ const authUserList = [
   'tizio.caio@bmail.com',
 ];
 
-const userMail = prompt('inserire la mail');
+let access = false;
+
+let message;
+//const userMail = prompt('inserire la mail');
 
 for(let i=0; i<authUserList.length; i++){
   if (userMail === authUserList[i]){
     console.log('ok');
     i = authUserList.length;
+    access = true;
   } else {
     console.log('NO');
+    access = false;
   }
 }
+
+if (access){
+  message = `Benvenuto`;
+} else{
+  message = `Indirizzo email non autorizzato, controlla di aver inserito correttamente il dato`;
+}
+
+document.querySelector('span').append(message);
