@@ -10,24 +10,31 @@ const authUserList = [
 
 let access = false;
 
-let message;
-//const userMail = prompt('inserire la mail');
+const button = document.querySelector('.container .card button');
 
-for(let i=0; i<authUserList.length; i++){
-  if (userMail === authUserList[i]){
-    console.log('ok');
-    i = authUserList.length;
-    access = true;
-  } else {
-    console.log('NO');
-    access = false;
+button.addEventListener('click', function(){
+
+  const userMail = document.querySelector('.container .card input');
+
+  if (document.querySelector('.result').classList.contains('d-none')) document.querySelector('.result').classList.remove('d-none');
+
+  for(let i=0; i<authUserList.length; i++){
+    if (userMail.value === authUserList[i]){
+      i = authUserList.length;
+      access = true;
+      console.log('si');
+    } else {
+      access = false;
+    }
   }
-}
+  
+  if (access){
+    document.querySelector('.result .negative').classList.add('d-none');
+    document.querySelector('.result .positive').classList.remove('d-none');
+    userMail.value = '';
+  } else{
+    document.querySelector('.result .positive').classList.add('d-none');
+    document.querySelector('.result .negative').classList.remove('d-none');
+  }
 
-if (access){
-  message = `Benvenuto`;
-} else{
-  message = `Indirizzo email non autorizzato, controlla di aver inserito correttamente il dato`;
-}
-
-document.querySelector('span').append(message);
+});
