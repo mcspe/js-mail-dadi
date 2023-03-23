@@ -1,4 +1,12 @@
-const dado = [1, 2, 3, 4, 5, 6];
+const dado = [];
+
+for (let i = 1; i < 7; i++) {
+  const myImg = new Image('30', '30');
+  myImg.src = `../img/dice-six-faces-${i}.png`;
+  dado.push(myImg);
+}
+
+console.log(dado);
 
 //let access = false;
 
@@ -27,11 +35,11 @@ button.addEventListener('click', function(){
   }
 
   const userDice = document.createElement('div');
-  userDice.append('TU');
+  userDice.append('TU ');
   userDice.append(dado[userTurn]);
 
   const computerDice = document.createElement('div');
-  computerDice.append('COMPUTER');
+  computerDice.append('COMPUTER ');
   computerDice.append(dado[computerTurn]);
 
   const resultMessage = document.createElement('p');
