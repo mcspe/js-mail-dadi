@@ -60,3 +60,15 @@ body{
 .d-none{
   display: none;
 }
+
+.result i{
+  font-size: 2rem;
+}
+
+.result .positive i{
+  color: #00ff00;
+}
+
+.result .negative i{
+  color: #ffd13b;
+}
