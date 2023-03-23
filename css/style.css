@@ -41,6 +41,10 @@ body{
   height: 30px;
 }
 
+.container .card span{
+  margin: 1rem 0;
+}
+
 .container .card button{
   cursor: pointer;
   text-transform: uppercase;
@@ -55,6 +59,11 @@ body{
 .container .result a{
   text-decoration: none;
   text-transform: uppercase;
+}
+
+.container .result div{
+  display: inline-block;
+  margin: 0 2rem;
 }
 
 .d-none{
