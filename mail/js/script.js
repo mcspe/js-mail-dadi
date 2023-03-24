@@ -25,6 +25,7 @@ button.addEventListener('click', function(){
 
   const userMail = document.querySelector('.container .card input');
   let userName = '';
+  document.querySelector('.user').innerHTML = '';
 
   if (document.querySelector('.result').classList.contains('d-none')) document.querySelector('.result').classList.remove('d-none');
 

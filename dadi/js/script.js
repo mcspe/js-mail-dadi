@@ -1,7 +1,7 @@
 const dado = [];
 
 for (let i = 1; i < 7; i++) {
-  const diceImg = new Image('30', '30');
+  const diceImg = new Image('40', '40');
   diceImg.src = `../img/dice-six-faces-${i}.png`;
   dado.push(diceImg);
 }
@@ -16,7 +16,7 @@ function randomThrow(){
 }
 
 function parentMultiple(parent, child){
-  const imgTag = new Image('30', '30');
+  const imgTag = new Image('40', '40');
   imgTag.src = child.src;
   parent.append(imgTag);
 }
