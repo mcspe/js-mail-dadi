@@ -1,4 +1,6 @@
+//import {passName} from '../../mail/js/script.js';
 const dado = [];
+//console.log(passName);
 
 for (let i = 1; i < 7; i++) {
   const diceImg = new Image('40', '40');

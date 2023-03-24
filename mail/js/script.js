@@ -9,6 +9,7 @@ const authUserList = [
 ];
 
 let access = false;
+let passName = '';
 
 const button = document.querySelector('.container .card button');
 
@@ -29,12 +30,9 @@ button.addEventListener('click', function(){
 
   if (document.querySelector('.result').classList.contains('d-none')) document.querySelector('.result').classList.remove('d-none');
 
-  for(let i=0; i<authUserList.length; i++){
+  for(let i=0; i<authUserList.length && (!access); i++){
     if (userMail.value === authUserList[i]){
-      i = authUserList.length;
       access = true;
-    } else {
-      access = false;
     }
   }
   
@@ -52,3 +50,7 @@ button.addEventListener('click', function(){
   }
 
 });
+
+//passName = 'ciao';
+
+//export {passName};
