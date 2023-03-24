@@ -1,14 +1,12 @@
 const dado = [];
 
 for (let i = 1; i < 7; i++) {
-  const myImg = new Image('30', '30');
-  myImg.src = `../img/dice-six-faces-${i}.png`;
-  dado.push(myImg);
+  const diceImg = new Image('30', '30');
+  diceImg.src = `../img/dice-six-faces-${i}.png`;
+  dado.push(diceImg);
 }
 
-console.log(dado);
-
-//let access = false;
+console.log(dado, dado[1] );
 
 const button = document.querySelector('.container .card button');
 
@@ -17,32 +15,44 @@ function randomThrow(){
   return diceThrow;
 }
 
+function parentMultiple(parent, child){
+  const imgTag = new Image('30', '30');
+  imgTag.src = child.src;
+  parent.append(imgTag);
+}
+
 button.addEventListener('click', function(){
 
   if (document.querySelector('.result').classList.contains('d-none')) document.querySelector('.result').classList.remove('d-none');
+
   document.querySelector('.result .text').innerHTML = '';
 
   let computerTurn = randomThrow();
   let userTurn = randomThrow();
   let message;
+  const userDice = document.createElement('div');
+  const computerDice = document.createElement('div');
+  const resultMessage = document.createElement('p');
 
   if (userTurn > computerTurn){
     message = 'Complimenti! Hai vinto';
+    resultMessage.classList.add('success');
   } else if(computerTurn > userTurn){
     message = 'Peccato! Hai perso';
+    resultMessage.classList.add('fail');
   } else{
     message = 'Patta! Lancia un\'altra volta';
+    resultMessage.classList.add('even');
   }
-
-  const userDice = document.createElement('div');
+  
   userDice.append('TU ');
-  userDice.append(dado[userTurn]);
-
-  const computerDice = document.createElement('div');
+  parentMultiple(userDice, dado[userTurn]);
+  //userDice.append(dado[userTurn]);
+  
   computerDice.append('COMPUTER ');
-  computerDice.append(dado[computerTurn]);
+  parentMultiple(computerDice, dado[computerTurn]);
+  //computerDice.append(dado[computerTurn]);
 
-  const resultMessage = document.createElement('p');
   resultMessage.append(message);
 
   document.querySelector('.result .text').append(userDice, computerDice, resultMessage);

@@ -61,7 +61,7 @@ body{
   text-transform: uppercase;
 }
 
-.container .result div{
+.container .result .text div{
   display: inline-block;
   margin: 0 2rem;
 }
@@ -79,5 +79,17 @@ body{
 }
 
 .result .negative i{
+  color: #ffd13b;
+}
+
+.success{
+  color: #00ff00;
+}
+
+.fail{
+  color: red;
+}
+
+.even{
   color: #ffd13b;
 }
